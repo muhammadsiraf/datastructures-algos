@@ -166,6 +166,77 @@ def insertion_sort3(data):
         data[j+1]=temp
         
     return data
-   
-sorted2 = insertion_sort(array)
-print(sorted2)
+
+
+def mergeSort(arr):
+    # arr = data
+    if len(arr)>1:
+        # print("hai")
+        mid = int(len(arr)/2)
+        
+        L = arr[:mid]
+        R = arr[mid:]
+        
+        mergeSort(L)
+        mergeSort(R)
+        
+        i = j = k = 0
+        
+        while i < len(L) and j < len(R):
+            
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i+=1
+                
+            elif R[j] <= L[i]:
+                arr[k] = R[j]
+                j+=1
+                
+            k+=1
+            
+        while i<len(L):
+            arr[k] = L[i]
+            i+=1
+            k+=1
+            
+        while j<len(R):
+            arr[k] = R[j]
+            j+=1
+            k+=1
+            
+    return arr
+
+
+def mergeSort2(data):
+    if len(data) > 1:
+        
+        mid = len(data)//2
+        L = data[:mid]
+        R = data[mid:]
+        
+        mergeSort2(L)
+        mergeSort2(R)
+        
+        i = j = k = 0
+        
+        while i < len(L) and j < len(R):
+            if L[i] <  R[j]:
+                data[k] = L[i]
+                i+=1
+            else:
+                data[k] = R[j]
+                j+=1
+            k+=1
+            
+        while i < len(L):
+            data[k]=L[i]
+            i+=1
+            k+=1
+        while j < len(R):
+            data[k]=R[j]
+            j+=1
+            k+=1
+            
+
+sorted2 = mergeSort2(array)
+print(array)
